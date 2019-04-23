@@ -1,7 +1,8 @@
 // Define UI variables
 const form = document.querySelector('#task-form');
 const taskList = document.querySelector('.collection');
-const clearBtn = document.querySelector('#filter');
+const clearBtn = document.querySelector('.clear-tasks');
+const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
 // Load all event listeners
@@ -14,6 +15,8 @@ function loadEventListeners(){
     form.addEventListener('submit', addTask);
     // Remove task event listener
     taskList.addEventListener('click', removeTask);
+    // Clear tasks event listener
+    clearBtn.addEventListener('click', clearTasks);
 }
 
 // Get tasks from localStorage
@@ -129,4 +132,19 @@ function removeTaskFromLocalStorage(taskItem){
     });
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// Clear all tasks
+function clearTasks(e){
+    while(taskList.firstChild){
+        taskList.removeChild(taskList.firstChild);
+    }
+
+    // Clear localStorage
+    clearTasksFromLocalStorage();
+}
+
+// Clear tasks from localStorage
+function clearTasksFromLocalStorage(){
+    localStorage.clear();
 }
