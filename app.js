@@ -9,7 +9,7 @@ const taskInput = document.querySelector('#task');
 loadEventListeners();
 
 function loadEventListeners(){
-    // DOM load event
+    // DOM load event listener
     document.addEventListener('DOMContentLoaded', getTasks);
     // Add task event listener
     form.addEventListener('submit', addTask);
@@ -17,6 +17,8 @@ function loadEventListeners(){
     taskList.addEventListener('click', removeTask);
     // Clear tasks event listener
     clearBtn.addEventListener('click', clearTasks);
+    // Filter tasks event listener
+    filter.addEventListener('keyup', filterTasks);
 }
 
 // Get tasks from localStorage
@@ -147,4 +149,18 @@ function clearTasks(e){
 // Clear tasks from localStorage
 function clearTasksFromLocalStorage(){
     localStorage.clear();
+}
+
+// Filter tasks
+function filterTasks(e){
+    const text = e.target.value.toLowerCase();
+
+    document.querySelectorAll('.collection-item').forEach(function(task){
+        const item = task.firstChild.textContent;
+        if(item.toLowerCase().indexOf(text) != -1){
+            task.style.display = 'block';
+        } else {
+            task.style.display = 'none';
+        }
+    })
 }
