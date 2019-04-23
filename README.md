@@ -15,13 +15,24 @@ This project is currently: _In Progress_
 
 ## Features
 Complete:
-* 
+* Users can add and remove tasks
+* Tasks persist to local storage
+* Users can filter tasks
 
 To-Do List:
-* 
+* Users can edit a task
+* Users can mark a task as completed
+* Users can view a list of all completed tasks
+* Users can see the date when they created the task
 
 ## Screenshots
-![Example Screenshot](./images/guessing-game.png)
+![Empty Task List](./images/task-list.png)
+
+![Task List with Tasks](./images/task-list1.png)
+
+![Remove Task Confirmation](./images/task-list2.png)
+
+![Filter Tasks](./images/task-list3.png)
 
 ## Technologies
 Built with:
